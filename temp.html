@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #D3921A ;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #ABD31A;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #333;
+        }
+        label, input, button {
+            margin: 10px;
+            padding: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result1 {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+		
+		 #result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <label for="celsius">Celsius:</label>
+        <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+        <button onclick="convertToFar()">Convert to Fahrenheit</button>
+		<br><p id="result1"></p><br><br><br><br>
+
+        <label for="fahrenheit">Fahrenheit:</label>
+        <input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit">
+        <button onclick="convertToCel()">Convert to Celsius</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convertToFar() {
+            const celsius = parseFloat(document.getElementById("celsius").value);
+            if (!isNaN(celsius)) {
+                const fahrenheit = (celsius * 9/5) + 32;
+                document.getElementById("result1").innerHTML = `${celsius} &deg;C is equal to ${fahrenheit.toFixed(2)} &deg;F`;
+            } else {
+                document.getElementById("result1").innerHTML = "Please enter a valid temperature.";
+            }
+        }
+
+        function convertToCel() {
+            const fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+            if (!isNaN(fahrenheit)) {
+                const celsius = (fahrenheit - 32) * 5/9;
+                document.getElementById("result").innerHTML = `${fahrenheit} &deg;F is equal to ${celsius.toFixed(2)} &deg;C`;
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid temperature.";
+            }
+        }
+    </script>
+</body>
+</html>
